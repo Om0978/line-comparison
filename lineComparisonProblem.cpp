@@ -18,8 +18,17 @@ class lines{
     double calculateLengthOfLine(){ 
         return sqrt(pow(x2-x1,2)+pow(y2-y1,2));
     }
+
     bool operator == (lines & o2){
         return calculateLengthOfLine() == o2.calculateLengthOfLine();
+    }
+
+    bool operator < (lines & o2){
+        return calculateLengthOfLine() < o2.calculateLengthOfLine();
+    }
+
+    bool operator  >(lines & o2){
+        return calculateLengthOfLine() > o2.calculateLengthOfLine();
     }
 };
 
@@ -39,9 +48,12 @@ int main(){
     if(line1==line2){
         cout<<"the length of two lines are equal\n";
     }
-    else{
-        cout<<"the length of two lines are not equal\n";
+    else if(line1 > line2){
+        cout<<"line1 is greater than line2 \n";
+    }
+    else {
+        cout<<"line1 is shorter than line2 \n";
     }
     
-
+    return 0;
 }
