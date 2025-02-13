@@ -18,15 +18,30 @@ class lines{
     double calculateLengthOfLine(){ 
         return sqrt(pow(x2-x1,2)+pow(y2-y1,2));
     }
+    bool operator == (lines & o2){
+        return calculateLengthOfLine() == o2.calculateLengthOfLine();
+    }
 };
 
 int main(){
     cout<<"welcome to line comparison computation program\n" ;
     double x1,y1,x2,y2; 
-    cout<<"enter x1 , y1 and x2 , y2 coordinates "<<endl;
+    cout<<"enter coordinates for first line (x1,y1,x2,y2)"<<endl;
     cin>>x1>>y1>>x2>>y2;
+    lines line1(x1,x2,y1,y2); //create line1
+    cout<<"length of line1 is : "<<line1.calculateLengthOfLine()<<endl;
 
-    lines obj1(x1,x2,y1,y2); //create object of class lines
-    cout<<"length of line is : "<<obj1.calculateLengthOfLine();
+    cout<<"enter coordinates for second line (x1,y1,x2,y2)"<<endl;
+    cin>>x1>>y1>>x2>>y2;
+    lines line2(x1,x2,y1,y2);
+    cout<<"length of line2 is : "<<line2.calculateLengthOfLine()<<endl;
+
+    if(line1==line2){
+        cout<<"the length of two lines are equal\n";
+    }
+    else{
+        cout<<"the length of two lines are not equal\n";
+    }
+    
 
 }
